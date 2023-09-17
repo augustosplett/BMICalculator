@@ -17,20 +17,22 @@ namespace BMICalculator
             InitializeComponent();
         }
 
-        private void ValidadeInput(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
         private void buttonCalculateBMI_Click(object sender, EventArgs e)
         {
             var height = Convert.ToSingle(textBoxHeight.Text);
             var weight = Convert.ToSingle(textBoxWeight.Text);
             var bmi = CalculateBMI(height, weight);
-            MessageBox.Show($"BMI:{bmi.ToString()}, Tier: {CalculateTier(bmi)}, Weight to Lose:{KilosToNormalWeight(weight, height)}");
-            
+            var tier = CalculateTier(bmi);
+            var weightToNormal = KilosToNormalWeight(weight, height);
+            OpenResults(bmi, tier, weightToNormal);
+            this.Hide();
         }
 
+        private void OpenResults( float bmi, string tier, float weightToNormal)
+        {
+            Form results = new Results(bmi, tier, weightToNormal);
+            results.Show();
+        }
         private static float CalculateBMI(float height, float weight)
         {
             return (weight / (height * height)) * 10000;
@@ -53,5 +55,9 @@ namespace BMICalculator
             return kilosToLose;
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

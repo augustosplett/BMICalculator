@@ -43,7 +43,9 @@ namespace BMICalculator
             if(validUser)
             {
                 ClearFields();
-                this.Close();
+                OpenCalculator();
+                this.Hide();
+                
             }
             else
             {
@@ -51,6 +53,17 @@ namespace BMICalculator
                 ClearFields();
                 textBoxUserName.Focus();
             }
+        }
+
+        private void OpenCalculator()
+        {
+            Form1 calculator = new Form1();
+            calculator.Show();
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

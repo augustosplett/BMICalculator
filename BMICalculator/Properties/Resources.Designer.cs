@@ -63,6 +63,16 @@ namespace BMICalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BMI_Chart {
+            get {
+                object obj = ResourceManager.GetObject("BMI-Chart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap helth_check_logo {
             get {
                 object obj = ResourceManager.GetObject("helth_check_logo", resourceCulture);

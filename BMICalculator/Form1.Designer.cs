@@ -65,7 +65,6 @@
             this.textBoxWeight.Name = "textBoxWeight";
             this.textBoxWeight.Size = new System.Drawing.Size(174, 29);
             this.textBoxWeight.TabIndex = 2;
-            this.textBoxWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidadeInput);
             // 
             // textBoxHeight
             // 
@@ -121,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
